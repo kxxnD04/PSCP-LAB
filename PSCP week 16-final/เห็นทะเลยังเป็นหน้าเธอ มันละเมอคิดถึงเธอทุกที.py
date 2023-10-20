@@ -48,13 +48,11 @@
 
 
 def deepsea(txt):
-    zone = {('BULL'): 'THE SHALLOW ZONE', 
-            ('CHAINCAT', 'GREATWHITE', 'GUMMY', 'BLUE', 'MAKO'): 'THE TWILIGHT ZONE',\
-            ('FRILLED', 'GOBLIN', 'SIXGILL', 'GREENLAND', 'COOKIECUTTER'): 'THE MIDNIGHT ZONE', \
+    '''find deep sea shark'''
+    zone = {'BULL': 'THE SHALLOW ZONE',
+            ('CHAINCAT', 'GREATWHITE', 'GUMMY', 'BLUE', 'MAKO'): 'THE TWILIGHT ZONE',
+            ('FRILLED', 'GOBLIN', 'SIXGILL', 'GREENLAND', 'COOKIECUTTER'): 'THE MIDNIGHT ZONE',
             ('MEGAMOUTH'): 'THE ABYSSAL ZONE'}
-    if 'SHARK' not in txt:
-        print('ZONE JAI MA KLUNG RAK DUAY KAN MAI.')
-    else:
-        print(zone[k] for k in list(zone.keys()) if (txt.replace('SHARK', '')).strip() in k)
-        print(list(zone.keys()))
+    print('ZONE JAI MA KLUNG RAK DUAY KAN MAI.' if 'SHARK' not in txt else list(zone.values())\
+    [list(map(lambda x: (txt.replace('SHARK', '')).strip() in x, list(zone.keys()))).index(True)])
 deepsea(input().replace(' ', ''))
