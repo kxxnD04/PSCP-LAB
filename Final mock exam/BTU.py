@@ -13,10 +13,8 @@ def btu(size, heigh, people, heat, sun):
 + 30000*(size in range(1501, 2001)) + 34000*(size in range(2001, 2501))
     ans += (max(heigh-8, 0)*1000) + (max(people-2, 0)*600) +\
         (4000*(heat == 'kitchen'))
-    if sun == 'facing the sun':
-        ans = ans*(110/100)
-    elif sun == 'shaded':
-        ans = ans*(90/100)
+    ans = (ans*(110/100))*(sun == 'facing the sun') + (ans*(90/100))*(sun == 'shaded')\
+    + ans*(sun == 'Normal')
     print(int(ans))
 
 
