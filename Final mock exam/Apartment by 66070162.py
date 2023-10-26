@@ -19,7 +19,7 @@ def apartment(var):
     to_value = list(map(upper_priced_function, consider))
     highest_of_upper = sorted((zip(to_value, map(lambda x: var[2]-x, consider))),\
                               key=lambda x: (-x[0], x[1]))[0]
- 
+
     chose = sorted([highest_of_lower, highest_of_upper], key=lambda x: (-x[0], x[1]))[0]
     print(*chose, sep="\n")
 apartment([int(input()) for _ in range(5)])
